@@ -3,11 +3,56 @@ import com.google.gson.annotations.SerializedName;
 public class Statistic {
     @SerializedName("Vitalité")
     private FromTo vitalite;
+    @SerializedName("PA")
+    private FromTo pa;
+    @SerializedName("PM")
+    private FromTo pm;
     @SerializedName("Sagesse")
     private FromTo sagesse;
     @SerializedName("Soins")
     private FromTo soins;
-    @SerializedName("% Critique")
+    @SerializedName(value = "% Critique", alternate = {
+            "1% Critique",
+            "2% Critique",
+            "3% Critique",
+            "4% Critique",
+            "5% Critique",
+            "6% Critique",
+            "7% Critique",
+            "8% Critique",
+            "9% Critique",
+            "10% Critique",
+            "11% Critique",
+            "12% Critique",
+            "13% Critique",
+            "14% Critique",
+            "15% Critique",
+            "16% Critique",
+            "17% Critique",
+            "18% Critique",
+            "19% Critique",
+            "20% Critique",
+            "-1% Critique",
+            "-2% Critique",
+            "-3% Critique",
+            "-4% Critique",
+            "-5% Critique",
+            "-6% Critique",
+            "-7% Critique",
+            "-8% Critique",
+            "-9% Critique",
+            "-10% Critique",
+            "-11% Critique",
+            "-12% Critique",
+            "-13% Critique",
+            "-14% Critique",
+            "-15% Critique",
+            "-16% Critique",
+            "-17% Critique",
+            "-18% Critique",
+            "-19% Critique",
+            "-20% Critique"
+    })
     private FromTo critique;
     @SerializedName("Puissance")
     private FromTo puissance;
@@ -33,20 +78,315 @@ public class Statistic {
     private FromTo dommagesAir;
     @SerializedName("Dommages Critiques")
     private FromTo dommagesCritiques;
-    @SerializedName("% Résistance Neutre")
+    @SerializedName("Dommages Poussée")
+    private FromTo dommagesPoussee;
+    @SerializedName(value = "% Résistance Neutre", alternate = {
+            "1% Résistance Neutre",
+            "2% Résistance Neutre",
+            "3% Résistance Neutre",
+            "4% Résistance Neutre",
+            "5% Résistance Neutre",
+            "6% Résistance Neutre",
+            "7% Résistance Neutre",
+            "8% Résistance Neutre",
+            "9% Résistance Neutre",
+            "10% Résistance Neutre",
+            "-1% Résistance Neutre",
+            "-2% Résistance Neutre",
+            "-3% Résistance Neutre",
+            "-4% Résistance Neutre",
+            "-5% Résistance Neutre",
+            "-6% Résistance Neutre",
+            "-7% Résistance Neutre",
+            "-8% Résistance Neutre",
+            "-9% Résistance Neutre",
+            "-10% Résistance Neutre"
+    })
     private FromTo pourcentResistanceNeutre;
-    @SerializedName("% Résistance Terre")
+    @SerializedName(value = "% Résistance Terre", alternate = {
+            "1% Résistance Terre",
+            "2% Résistance Terre",
+            "3% Résistance Terre",
+            "4% Résistance Terre",
+            "5% Résistance Terre",
+            "6% Résistance Terre",
+            "7% Résistance Terre",
+            "8% Résistance Terre",
+            "9% Résistance Terre",
+            "10% Résistance Terre",
+            "-1% Résistance Terre",
+            "-2% Résistance Terre",
+            "-3% Résistance Terre",
+            "-4% Résistance Terre",
+            "-5% Résistance Terre",
+            "-6% Résistance Terre",
+            "-7% Résistance Terre",
+            "-8% Résistance Terre",
+            "-9% Résistance Terre",
+            "-10% Résistance Terre"
+    })
     private FromTo pourcentResistanceTerre;
-    @SerializedName("% Résistance Feu")
+    @SerializedName(value = "% Résistance Feu", alternate = {
+            "1% Résistance Feu",
+            "2% Résistance Feu",
+            "3% Résistance Feu",
+            "4% Résistance Feu",
+            "5% Résistance Feu",
+            "6% Résistance Feu",
+            "7% Résistance Feu",
+            "8% Résistance Feu",
+            "9% Résistance Feu",
+            "10% Résistance Feu",
+            "-1% Résistance Feu",
+            "-2% Résistance Feu",
+            "-3% Résistance Feu",
+            "-4% Résistance Feu",
+            "-5% Résistance Feu",
+            "-6% Résistance Feu",
+            "-7% Résistance Feu",
+            "-8% Résistance Feu",
+            "-9% Résistance Feu",
+            "-10% Résistance Feu"
+    })
     private FromTo pourcentResistanceFeu;
-    @SerializedName("% Résistance Eau")
+    @SerializedName(value = "% Résistance Eau", alternate = {
+            "1% Résistance Eau",
+            "2% Résistance Eau",
+            "3% Résistance Eau",
+            "4% Résistance Eau",
+            "5% Résistance Eau",
+            "6% Résistance Eau",
+            "7% Résistance Eau",
+            "8% Résistance Eau",
+            "9% Résistance Eau",
+            "10% Résistance Eau",
+            "-1% Résistance Eau",
+            "-2% Résistance Eau",
+            "-3% Résistance Eau",
+            "-4% Résistance Eau",
+            "-5% Résistance Eau",
+            "-6% Résistance Eau",
+            "-7% Résistance Eau",
+            "-8% Résistance Eau",
+            "-9% Résistance Eau",
+            "-10% Résistance Eau"
+    })
     private FromTo pourcentResistanceEau;
-    @SerializedName("% Résistance Air")
+    @SerializedName(value = "% Résistance Air", alternate = {
+            "1% Résistance Air",
+            "2% Résistance Air",
+            "3% Résistance Air",
+            "4% Résistance Air",
+            "5% Résistance Air",
+            "6% Résistance Air",
+            "7% Résistance Air",
+            "8% Résistance Air",
+            "9% Résistance Air",
+            "10% Résistance Air",
+            "-1% Résistance Air",
+            "-2% Résistance Air",
+            "-3% Résistance Air",
+            "-4% Résistance Air",
+            "-5% Résistance Air",
+            "-6% Résistance Air",
+            "-7% Résistance Air",
+            "-8% Résistance Air",
+            "-9% Résistance Air",
+            "-10% Résistance Air"
+    })
     private FromTo pourcentResistanceAir;
     @SerializedName("Résistance Critiques")
     private FromTo resistanceCritiques;
+    @SerializedName("Résistance Poussées")
+    private FromTo resistancePoussees;
     @SerializedName("Tacle")
     private FromTo tacle;
+    @SerializedName("Fuite")
+    private FromTo fuite;
+    @SerializedName("Esquive PA")
+    private FromTo esquivePa;
+    @SerializedName("Esquive PM")
+    private FromTo esquivePm;
+    @SerializedName("Retrait PA")
+    private FromTo retraitPa;
+    @SerializedName("Retrait PM")
+    private FromTo retraitPm;
+    @SerializedName("Résistance Terre")
+    private FromTo resistanceFixeTerre;
+    @SerializedName("Résistance Feu")
+    private FromTo resistanceFixeFeu;
+    @SerializedName("Résistance Eau")
+    private FromTo resistanceFixeEau;
+    @SerializedName("Résistance Air")
+    private FromTo resistanceFixeAir;
+    @SerializedName(value = "1% Résistance distance", alternate = {
+            "2% Résistance distance",
+            "3% Résistance distance",
+            "4% Résistance distance",
+            "5% Résistance distance",
+            "6% Résistance distance",
+            "7% Résistance distance",
+            "8% Résistance distance",
+            "9% Résistance distance",
+            "10% Résistance distance",
+            "11% Résistance distance",
+            "12% Résistance distance",
+            "13% Résistance distance",
+            "14% Résistance distance",
+            "15% Résistance distance",
+            "16% Résistance distance",
+            "17% Résistance distance",
+            "18% Résistance distance",
+            "19% Résistance distance",
+            "20% Résistance distance",
+            "-1% Résistance distance",
+            "-2% Résistance distance",
+            "-3% Résistance distance",
+            "-4% Résistance distance",
+            "-5% Résistance distance",
+            "-6% Résistance distance",
+            "-7% Résistance distance",
+            "-8% Résistance distance",
+            "-9% Résistance distance",
+            "-10% Résistance distance",
+            "-11% Résistance distance",
+            "-12% Résistance distance",
+            "-13% Résistance distance",
+            "-14% Résistance distance",
+            "-15% Résistance distance",
+            "-16% Résistance distance",
+            "-17% Résistance distance",
+            "-18% Résistance distance",
+            "-19% Résistance distance",
+            "-20% Résistance distance"
+    })
+    private FromTo pourcentResistanceDistance;
+    @SerializedName(value = "1% Résistance mêlée", alternate = {
+            "2% Résistance mêlée",
+            "3% Résistance mêlée",
+            "4% Résistance mêlée",
+            "5% Résistance mêlée",
+            "6% Résistance mêlée",
+            "7% Résistance mêlée",
+            "8% Résistance mêlée",
+            "9% Résistance mêlée",
+            "10% Résistance mêlée",
+            "11% Résistance mêlée",
+            "12% Résistance mêlée",
+            "13% Résistance mêlée",
+            "14% Résistance mêlée",
+            "15% Résistance mêlée",
+            "16% Résistance mêlée",
+            "17% Résistance mêlée",
+            "18% Résistance mêlée",
+            "19% Résistance mêlée",
+            "20% Résistance mêlée",
+            "-1% Résistance mêlée",
+            "-2% Résistance mêlée",
+            "-3% Résistance mêlée",
+            "-4% Résistance mêlée",
+            "-5% Résistance mêlée",
+            "-6% Résistance mêlée",
+            "-7% Résistance mêlée",
+            "-8% Résistance mêlée",
+            "-9% Résistance mêlée",
+            "-10% Résistance mêlée",
+            "-11% Résistance mêlée",
+            "-12% Résistance mêlée",
+            "-13% Résistance mêlée",
+            "-14% Résistance mêlée",
+            "-15% Résistance mêlée",
+            "-16% Résistance mêlée",
+            "-17% Résistance mêlée",
+            "-18% Résistance mêlée",
+            "-19% Résistance mêlée",
+            "-20% Résistance mêlée"
+    })
+    private FromTo pourcentResistanceMelee;
+    @SerializedName(value = "% Dommages mêlée", alternate = {
+            "2% Dommages mêlée",
+            "3% Dommages mêlée",
+            "4% Dommages mêlée",
+            "5% Dommages mêlée",
+            "6% Dommages mêlée",
+            "7% Dommages mêlée",
+            "8% Dommages mêlée",
+            "9% Dommages mêlée",
+            "10% Dommages mêlée",
+            "11% Dommages mêlée",
+            "12% Dommages mêlée",
+            "13% Dommages mêlée",
+            "14% Dommages mêlée",
+            "15% Dommages mêlée",
+            "16% Dommages mêlée",
+            "17% Dommages mêlée",
+            "18% Dommages mêlée",
+            "19% Dommages mêlée",
+            "20% Dommages mêlée",
+            "-1% Dommages mêlée",
+            "-2% Dommages mêlée",
+            "-3% Dommages mêlée",
+            "-4% Dommages mêlée",
+            "-5% Dommages mêlée",
+            "-6% Dommages mêlée",
+            "-7% Dommages mêlée",
+            "-8% Dommages mêlée",
+            "-9% Dommages mêlée",
+            "-10% Dommages mêlée",
+            "-11% Dommages mêlée",
+            "-12% Dommages mêlée",
+            "-13% Dommages mêlée",
+            "-14% Dommages mêlée",
+            "-15% Dommages mêlée",
+            "-16% Dommages mêlée",
+            "-17% Dommages mêlée",
+            "-18% Dommages mêlée",
+            "-19% Dommages mêlée",
+            "-20% Dommages mêlée"
+    })
+    private FromTo pourcentDommagesMelee;
+    @SerializedName(value = "% Dommages distance", alternate = {
+            "2% Dommages distance",
+            "3% Dommages distance",
+            "4% Dommages distance",
+            "5% Dommages distance",
+            "6% Dommages distance",
+            "7% Dommages distance",
+            "8% Dommages distance",
+            "9% Dommages distance",
+            "10% Dommages distance",
+            "11% Dommages distance",
+            "12% Dommages distance",
+            "13% Dommages distance",
+            "14% Dommages distance",
+            "15% Dommages distance",
+            "16% Dommages distance",
+            "17% Dommages distance",
+            "18% Dommages distance",
+            "19% Dommages distance",
+            "20% Dommages distance",
+            "-1% Dommages distance",
+            "-2% Dommages distance",
+            "-3% Dommages distance",
+            "-4% Dommages distance",
+            "-5% Dommages distance",
+            "-6% Dommages distance",
+            "-7% Dommages distance",
+            "-8% Dommages distance",
+            "-9% Dommages distance",
+            "-10% Dommages distance",
+            "-11% Dommages distance",
+            "-12% Dommages distance",
+            "-13% Dommages distance",
+            "-14% Dommages distance",
+            "-15% Dommages distance",
+            "-16% Dommages distance",
+            "-17% Dommages distance",
+            "-18% Dommages distance",
+            "-19% Dommages distance",
+            "-20% Dommages distance"
+    })
+    private FromTo pourcentDommagesDistance;
 
     public FromTo getVitalite() {
         return vitalite;
@@ -230,5 +570,125 @@ public class Statistic {
 
     public void setTacle(FromTo tacle) {
         this.tacle = tacle;
+    }
+
+    public FromTo getDommagesPoussee() {
+        return dommagesPoussee;
+    }
+
+    public void setDommagesPoussee(FromTo dommagesPoussee) {
+        this.dommagesPoussee = dommagesPoussee;
+    }
+
+    public FromTo getResistancePoussees() {
+        return resistancePoussees;
+    }
+
+    public void setResistancePoussees(FromTo resistancePoussees) {
+        this.resistancePoussees = resistancePoussees;
+    }
+
+    public FromTo getFuite() {
+        return fuite;
+    }
+
+    public void setFuite(FromTo fuite) {
+        this.fuite = fuite;
+    }
+
+    public FromTo getEsquivePa() {
+        return esquivePa;
+    }
+
+    public void setEsquivePa(FromTo esquivePa) {
+        this.esquivePa = esquivePa;
+    }
+
+    public FromTo getEsquivePm() {
+        return esquivePm;
+    }
+
+    public void setEsquivePm(FromTo esquivePm) {
+        this.esquivePm = esquivePm;
+    }
+
+    public FromTo getRetraitPa() {
+        return retraitPa;
+    }
+
+    public void setRetraitPa(FromTo retraitPa) {
+        this.retraitPa = retraitPa;
+    }
+
+    public FromTo getRetraitPm() {
+        return retraitPm;
+    }
+
+    public void setRetraitPm(FromTo retraitPm) {
+        this.retraitPm = retraitPm;
+    }
+
+    public FromTo getResistanceFixeTerre() {
+        return resistanceFixeTerre;
+    }
+
+    public void setResistanceFixeTerre(FromTo resistanceFixeTerre) {
+        this.resistanceFixeTerre = resistanceFixeTerre;
+    }
+
+    public FromTo getResistanceFixeFeu() {
+        return resistanceFixeFeu;
+    }
+
+    public void setResistanceFixeFeu(FromTo resistanceFixeFeu) {
+        this.resistanceFixeFeu = resistanceFixeFeu;
+    }
+
+    public FromTo getResistanceFixeEau() {
+        return resistanceFixeEau;
+    }
+
+    public void setResistanceFixeEau(FromTo resistanceFixeEau) {
+        this.resistanceFixeEau = resistanceFixeEau;
+    }
+
+    public FromTo getResistanceFixeAir() {
+        return resistanceFixeAir;
+    }
+
+    public void setResistanceFixeAir(FromTo resistanceFixeAir) {
+        this.resistanceFixeAir = resistanceFixeAir;
+    }
+
+    public FromTo getPourcentResistanceDistance() {
+        return pourcentResistanceDistance;
+    }
+
+    public void setPourcentResistanceDistance(FromTo pourcentResistanceDistance) {
+        this.pourcentResistanceDistance = pourcentResistanceDistance;
+    }
+
+    public FromTo getPourcentResistanceMelee() {
+        return pourcentResistanceMelee;
+    }
+
+    public void setPourcentResistanceMelee(FromTo pourcentResistanceMelee) {
+        this.pourcentResistanceMelee = pourcentResistanceMelee;
+    }
+
+    public FromTo getPourcentDommagesMelee() {
+        return pourcentDommagesMelee;
+    }
+
+    public void setPourcentDommagesMelee(FromTo pourcentDommagesMelee) {
+        this.pourcentDommagesMelee = pourcentDommagesMelee;
+    }
+
+    public FromTo getPourcentDommagesDistance() {
+        return pourcentDommagesDistance;
+    }
+
+    public void setPourcentDommagesDistance(FromTo pourcentDommagesDistance) {
+        this.pourcentDommagesDistance = pourcentDommagesDistance;
     }
 }

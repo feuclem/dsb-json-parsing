@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestGsonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-30T11:52:53" hostname="octo-pc" time="0.353">
+<testsuite name="TestGsonTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2019-08-30T12:53:57" hostname="octo-pc" time="1.057">
   <properties/>
-  <testcase name="write" classname="TestGsonTest" time="0.353"/>
+  <testcase name="write" classname="TestGsonTest" time="1.057"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
