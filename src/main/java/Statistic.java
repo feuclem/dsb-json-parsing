@@ -7,6 +7,8 @@ public class Statistic {
     private FromTo pa;
     @SerializedName("PM")
     private FromTo pm;
+    @SerializedName("Portée")
+    private FromTo po;
     @SerializedName("Sagesse")
     private FromTo sagesse;
     @SerializedName("Soins")
@@ -76,6 +78,16 @@ public class Statistic {
     private FromTo dommagesEau;
     @SerializedName("Dommages Air")
     private FromTo dommagesAir;
+    @SerializedName("Dommages")
+    private FromTo dommages;
+    @SerializedName("(dommages Neutre)")
+    private FromTo dommagesArmeNeutre;
+    @SerializedName("(dommages Terre)")
+    private FromTo dommagesArmeTerre;
+    @SerializedName("(dommages Feu)")
+    private FromTo dommagesArmeFeu;
+    @SerializedName("(dommages Eau)")
+    private FromTo dommagesArmeEau;
     @SerializedName("Dommages Critiques")
     private FromTo dommagesCritiques;
     @SerializedName("Dommages Poussée")
@@ -388,6 +400,8 @@ public class Statistic {
     })
     private FromTo pourcentDommagesDistance;
 
+    // DommagesAuxSorts
+
     public FromTo getVitalite() {
         return vitalite;
     }
@@ -690,5 +704,69 @@ public class Statistic {
 
     public void setPourcentDommagesDistance(FromTo pourcentDommagesDistance) {
         this.pourcentDommagesDistance = pourcentDommagesDistance;
+    }
+
+    public FromTo getPo() {
+        return po;
+    }
+
+    public void setPo(FromTo po) {
+        this.po = po;
+    }
+
+    public FromTo getPa() {
+        return pa;
+    }
+
+    public void setPa(FromTo pa) {
+        this.pa = pa;
+    }
+
+    public FromTo getPm() {
+        return pm;
+    }
+
+    public void setPm(FromTo pm) {
+        this.pm = pm;
+    }
+
+    public FromTo getDommagesArmeNeutre() {
+        return dommagesArmeNeutre;
+    }
+
+    public void setDommagesArmeNeutre(FromTo dommagesArmeNeutre) {
+        this.dommagesArmeNeutre = dommagesArmeNeutre;
+    }
+
+    public FromTo getDommagesArmeTerre() {
+        return dommagesArmeTerre;
+    }
+
+    public void setDommagesArmeTerre(FromTo dommagesArmeTerre) {
+        this.dommagesArmeTerre = dommagesArmeTerre;
+    }
+
+    public FromTo getDommagesArmeFeu() {
+        return dommagesArmeFeu;
+    }
+
+    public void setDommagesArmeFeu(FromTo dommagesArmeFeu) {
+        this.dommagesArmeFeu = dommagesArmeFeu;
+    }
+
+    public FromTo getDommagesArmeEau() {
+        return dommagesArmeEau;
+    }
+
+    public void setDommagesArmeEau(FromTo dommagesArmeEau) {
+        this.dommagesArmeEau = dommagesArmeEau;
+    }
+
+    public FromTo getDommages() {
+        return dommages;
+    }
+
+    public void setDommages(FromTo dommages) {
+        this.dommages = dommages;
     }
 }
