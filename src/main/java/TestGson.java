@@ -43,7 +43,7 @@ public class TestGson {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-        for (Equipments e : equipmentsList) {
+        equipmentsList.forEach(e -> {
             if (e.getType().equals("Amulette")) {
                 amulettes.add(e);
             }
@@ -65,7 +65,7 @@ public class TestGson {
             if (e.getType().equals("Dofus")) {
                 dofus.add(e);
             }
-        }
+        });
 
         write(amulettes, amulettesWriter, gson);
 

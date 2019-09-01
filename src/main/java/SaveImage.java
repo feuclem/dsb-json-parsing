@@ -48,13 +48,13 @@ public class SaveImage {
             imgUrlList.put(e.getImgUrl(), e.getName().replaceAll("\\s+", ""));
         }
 
-        for (Map.Entry me : imgUrlList.entrySet()) {
+        imgUrlList.forEach((k, v) -> {
             try {
-                URL url = new URL(me.getKey().toString());
+                URL url = new URL(k);
                 URLConnection connection = url.openConnection();
                 connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36");
                 InputStream in = connection.getInputStream();
-                OutputStream out = new BufferedOutputStream(new FileOutputStream(dirs.getUrlToSave() + me.getValue() + ".png"));
+                OutputStream out = new BufferedOutputStream(new FileOutputStream(dirs.getUrlToSave() + v + ".png"));
 
                 for (int i; (i = in.read()) != -1; ) {
                     out.write(i);
@@ -64,7 +64,6 @@ public class SaveImage {
             } catch (Exception ignored) {
 
             }
-
-        }
+        });
     }
 }
