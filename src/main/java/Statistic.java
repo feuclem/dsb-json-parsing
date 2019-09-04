@@ -209,8 +209,8 @@ public class Statistic {
     private FromTo pourcentResistanceAir;
     @SerializedName("Résistance Critiques")
     private FromTo resistanceCritiques;
-    @SerializedName("Résistance Poussées")
-    private FromTo resistancePoussees;
+    @SerializedName("Résistance Poussée")
+    private FromTo resistancePoussee;
     @SerializedName("Tacle")
     private FromTo tacle;
     @SerializedName("Fuite")
@@ -223,6 +223,8 @@ public class Statistic {
     private FromTo retraitPa;
     @SerializedName("Retrait PM")
     private FromTo retraitPm;
+    @SerializedName("Résistance Neutre")
+    private FromTo resistanceFixeNeutre;
     @SerializedName("Résistance Terre")
     private FromTo resistanceFixeTerre;
     @SerializedName("Résistance Feu")
@@ -231,6 +233,10 @@ public class Statistic {
     private FromTo resistanceFixeEau;
     @SerializedName("Résistance Air")
     private FromTo resistanceFixeAir;
+    @SerializedName("Prospection")
+    private FromTo prospection;
+    @SerializedName("Invocations")
+    private FromTo invocations;
     @SerializedName(value = "1% Résistance distance", alternate = {
             "2% Résistance distance",
             "3% Résistance distance",
@@ -399,8 +405,54 @@ public class Statistic {
             "-20% Dommages distance"
     })
     private FromTo pourcentDommagesDistance;
-
-    // DommagesAuxSorts
+    @SerializedName("Puissance (pièges)")
+    private FromTo puissancePieges;
+    @SerializedName("Dommages Pièges")
+    private FromTo dommagesPieges;
+    @SerializedName(value = "% Dommages aux sorts", alternate = {
+            "2% Dommages aux sorts",
+            "3% Dommages aux sorts",
+            "4% Dommages aux sorts",
+            "5% Dommages aux sorts",
+            "6% Dommages aux sorts",
+            "7% Dommages aux sorts",
+            "8% Dommages aux sorts",
+            "9% Dommages aux sorts",
+            "10% Dommages aux sorts",
+            "11% Dommages aux sorts",
+            "12% Dommages aux sorts",
+            "13% Dommages aux sorts",
+            "14% Dommages aux sorts",
+            "15% Dommages aux sorts",
+            "16% Dommages aux sorts",
+            "17% Dommages aux sorts",
+            "18% Dommages aux sorts",
+            "19% Dommages aux sorts",
+            "20% Dommages aux sorts",
+            "-1% Dommages aux sorts",
+            "-2% Dommages aux sorts",
+            "-3% Dommages aux sorts",
+            "-4% Dommages aux sorts",
+            "-5% Dommages aux sorts",
+            "-6% Dommages aux sorts",
+            "-7% Dommages aux sorts",
+            "-8% Dommages aux sorts",
+            "-9% Dommages aux sorts",
+            "-10% Dommages aux sorts",
+            "-11% Dommages aux sorts",
+            "-12% Dommages aux sorts",
+            "-13% Dommages aux sorts",
+            "-14% Dommages aux sorts",
+            "-15% Dommages aux sorts",
+            "-16% Dommages aux sorts",
+            "-17% Dommages aux sorts",
+            "-18% Dommages aux sorts",
+            "-19% Dommages aux sorts",
+            "-20% Dommages aux sorts"
+    })
+    private FromTo dommagesSorts;
+    @SerializedName("Pods")
+    private FromTo pods;
 
     public FromTo getVitalite() {
         return vitalite;
@@ -594,12 +646,12 @@ public class Statistic {
         this.dommagesPoussee = dommagesPoussee;
     }
 
-    public FromTo getResistancePoussees() {
-        return resistancePoussees;
+    public FromTo getResistancePoussee() {
+        return resistancePoussee;
     }
 
-    public void setResistancePoussees(FromTo resistancePoussees) {
-        this.resistancePoussees = resistancePoussees;
+    public void setResistancePoussee(FromTo resistancePoussee) {
+        this.resistancePoussee = resistancePoussee;
     }
 
     public FromTo getFuite() {
@@ -768,5 +820,61 @@ public class Statistic {
 
     public void setDommages(FromTo dommages) {
         this.dommages = dommages;
+    }
+
+    public FromTo getProspection() {
+        return prospection;
+    }
+
+    public void setProspection(FromTo prospection) {
+        this.prospection = prospection;
+    }
+
+    public FromTo getInvocations() {
+        return invocations;
+    }
+
+    public void setInvocations(FromTo invocations) {
+        this.invocations = invocations;
+    }
+
+    public FromTo getPuissancePieges() {
+        return puissancePieges;
+    }
+
+    public void setPuissancePieges(FromTo puissancePieges) {
+        this.puissancePieges = puissancePieges;
+    }
+
+    public FromTo getDommagesPieges() {
+        return dommagesPieges;
+    }
+
+    public void setDommagesPieges(FromTo dommagesPieges) {
+        this.dommagesPieges = dommagesPieges;
+    }
+
+    public FromTo getDommagesSorts() {
+        return dommagesSorts;
+    }
+
+    public void setDommagesSorts(FromTo dommagesSorts) {
+        this.dommagesSorts = dommagesSorts;
+    }
+
+    public FromTo getPods() {
+        return pods;
+    }
+
+    public void setPods(FromTo pods) {
+        this.pods = pods;
+    }
+
+    public FromTo getResistanceFixeNeutre() {
+        return resistanceFixeNeutre;
+    }
+
+    public void setResistanceFixeNeutre(FromTo resistanceFixeNeutre) {
+        this.resistanceFixeNeutre = resistanceFixeNeutre;
     }
 }

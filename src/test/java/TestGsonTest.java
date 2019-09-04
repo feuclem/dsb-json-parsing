@@ -8,11 +8,12 @@ import java.util.List;
 public class TestGsonTest {
 
     private TestGson testGson = new TestGson();
+    private String testDir = "/home/octoc/Documents/dsb-data/equipements_test.json";
 
     @Test
     public void deserializedEquipments() throws FileNotFoundException {
         // When
-        List<Equipments> eList = testGson.deserializedEquipments();
+        List<Equipments> eList = testGson.deserializedEquipments(testDir);
 
         // Then
         Assert.assertEquals(eList.get(0).get_id(), 14094);
@@ -25,8 +26,14 @@ public class TestGsonTest {
     }
 
     @Test
+    public void writeWithTest() throws IOException {
+        // When
+        testGson.write(testDir);
+    }
+
+    @Test
     public void write() throws IOException {
         // When
-        testGson.write();
+        testGson.write(TestGson.equipmentsDir);
     }
 }

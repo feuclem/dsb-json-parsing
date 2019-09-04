@@ -8,7 +8,7 @@ import java.util.List;
 
 public class TestGson {
 
-    private final static String equipmentsDir = "/home/octoc/Documents/dsb-data/equipements.json";
+    final static String equipmentsDir = "/home/octoc/Documents/dsb-data/equipements.json";
 
     private final static String amulettesDir = "/home/octoc/Documents/dsb-data/customized/amulettes.json";
     private final static String anneauxDir = "/home/octoc/Documents/dsb-data/customized/anneaux.json";
@@ -18,13 +18,13 @@ public class TestGson {
     private final static String bottesDir = "/home/octoc/Documents/dsb-data/customized/bottes.json";
     private final static String ceinturesDir = "/home/octoc/Documents/dsb-data/customized/ceintures.json";
 
-    public List<Equipments> deserializedEquipments() throws FileNotFoundException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(equipmentsDir), Equipments[].class);
+    public List<Equipments> deserializedEquipments(String dir) throws FileNotFoundException {
+        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipments[].class);
         return Arrays.asList(el);
     }
 
-    public void write() throws IOException {
-        List<Equipments> equipmentsList = this.deserializedEquipments();
+    public void write(String dir) throws IOException {
+        List<Equipments> equipmentsList = this.deserializedEquipments(equipmentsDir);
         List<Equipments> amulettes = new ArrayList<>();
         List<Equipments> bottes = new ArrayList<>();
         List<Equipments> ceintures = new ArrayList<>();
