@@ -41,4 +41,28 @@ public class SaveImageTest {
         // When
         saveImage.handle(saveImage.dofus);
     }
+
+    @Test
+    public void handleTrophees() throws IOException {
+        // When
+        saveImage.handle(saveImage.trophees);
+    }
+
+    @Test
+    public void handleArmes() throws IOException {
+        // When
+        saveImage.handle(saveImage.armes);
+    }
+
+    @Test
+    public void handleMontures() throws IOException {
+        // When
+        saveImage.handle(saveImage.montures);
+    }
+
+    @Test
+    public void handleFamiliers() throws IOException {
+        // When
+        saveImage.handle(saveImage.familiers);
+    }
 }

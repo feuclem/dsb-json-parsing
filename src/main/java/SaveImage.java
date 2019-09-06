@@ -34,6 +34,27 @@ public class SaveImage {
             "/home/octoc/Documents/dsb-data/customized/dofus.json",
             "/home/octoc/Documents/dsb-data/images/dofus/"
     );
+    SaveDirs trophees = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/customized/trophees.json",
+            "/home/octoc/Documents/dsb-data/images/trophees/"
+    );
+    SaveDirs armes = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/armes.json",
+            "/home/octoc/Documents/dsb-data/images/armes/"
+    );
+    SaveDirs montures = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/montures.json",
+            "/home/octoc/Documents/dsb-data/images/montures/"
+    );
+    SaveDirs familiers = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/familiers.json",
+            "/home/octoc/Documents/dsb-data/images/familiers/"
+    );
+    // TODO
+    SaveDirs panoplies = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/panoplies.json",
+            "/home/octoc/Documents/dsb-data/images/panoplies/"
+    );
 
     private List<Equipments> deserialized(String dir) throws FileNotFoundException {
         Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipments[].class);

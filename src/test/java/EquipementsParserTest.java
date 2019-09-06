@@ -5,15 +5,15 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 
-public class TestGsonTest {
+public class EquipementsParserTest {
 
-    private TestGson testGson = new TestGson();
+    private EquipementsParser equipementsParser = new EquipementsParser();
     private String testDir = "/home/octoc/Documents/dsb-data/equipements_test.json";
 
     @Test
     public void deserializedEquipments() throws FileNotFoundException {
         // When
-        List<Equipments> eList = testGson.deserializedEquipments(testDir);
+        List<Equipments> eList = equipementsParser.deserializedEquipments(testDir);
 
         // Then
         Assert.assertEquals(eList.get(0).get_id(), 14094);
@@ -28,12 +28,36 @@ public class TestGsonTest {
     @Test
     public void writeWithTest() throws IOException {
         // When
-        testGson.write(testDir);
+        equipementsParser.write(testDir);
     }
 
     @Test
     public void write() throws IOException {
         // When
-        testGson.write(TestGson.equipmentsDir);
+        equipementsParser.write(EquipementsParser.equipmentsDir);
+    }
+
+    @Test
+    public void writeMontures() throws IOException {
+        // When
+        equipementsParser.deserializedMontures();
+    }
+
+    @Test
+    public void writeFamilers() throws IOException {
+        // When
+        equipementsParser.deserializedFamiliers();
+    }
+
+    @Test
+    public void writeArmes() throws IOException {
+        // When
+        equipementsParser.deserializedArmes();
+    }
+
+    @Test
+    public void writePanoplies() throws IOException {
+        // When
+        equipementsParser.deserializedPanoplies();
     }
 }
