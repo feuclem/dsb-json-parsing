@@ -65,4 +65,16 @@ public class SaveImageTest {
         // When
         saveImage.handle(saveImage.familiers);
     }
+
+    @Test
+    public void handleBottes() throws IOException {
+        // When
+        saveImage.handle(saveImage.bottes);
+    }
+
+    @Test
+    public void handleBoucliers() throws IOException {
+        // When
+        saveImage.handle(saveImage.boucliers);
+    }
 }

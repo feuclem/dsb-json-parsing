@@ -54,7 +54,7 @@ public class EquipementsParser {
     }
 
     public void write(String dir) throws IOException {
-        List<Equipments> equipmentsList = this.deserializedEquipments(equipmentsDir);
+        List<Equipments> equipmentsList = this.deserializedEquipments(dir);
         List<Equipments> amulettes = new ArrayList<>();
         List<Equipments> bottes = new ArrayList<>();
         List<Equipments> ceintures = new ArrayList<>();

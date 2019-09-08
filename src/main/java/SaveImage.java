@@ -50,6 +50,14 @@ public class SaveImage {
             "/home/octoc/Documents/dsb-data/familiers.json",
             "/home/octoc/Documents/dsb-data/images/familiers/"
     );
+    SaveDirs bottes = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/customized/bottes.json",
+            "/home/octoc/Documents/dsb-data/images/bottes/"
+    );
+    SaveDirs boucliers = new SaveDirs(
+            "/home/octoc/Documents/dsb-data/customized/boucliers.json",
+            "/home/octoc/Documents/dsb-data/images/boucliers/"
+    );
     // TODO
     SaveDirs panoplies = new SaveDirs(
             "/home/octoc/Documents/dsb-data/panoplies.json",
