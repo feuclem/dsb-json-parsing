@@ -1,5 +1,5 @@
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import jdk.nashorn.internal.ir.annotations.Ignore;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ class Panoplies {
     private List<Integer> equipmentIds;
     @SerializedName("weapon_id")
     private List<Integer> armeIds;
-    @Ignore
+    @Expose(deserialize = false, serialize = false)
     private List<Equipments> equipments;
 
     int get_id() {

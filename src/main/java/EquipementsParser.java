@@ -8,49 +8,21 @@ import java.util.List;
 
 public class EquipementsParser {
 
-    final static String equipmentsDir = "/home/octoc/Documents/dsb-data/equipements.json";
+    final String equipmentsDir = getClass().getResource("equipments.json").getPath();
 
-    private final static String amulettesDir = "/home/octoc/Documents/dsb-data/customized/amulettes.json";
-    private final static String anneauxDir = "/home/octoc/Documents/dsb-data/customized/anneaux.json";
-    private final static String coiffesDir = "/home/octoc/Documents/dsb-data/customized/coiffes.json";
-    private final static String capesDir = "/home/octoc/Documents/dsb-data/customized/capes.json";
-    private final static String dofusDir = "/home/octoc/Documents/dsb-data/customized/dofus.json";
-    private final static String bottesDir = "/home/octoc/Documents/dsb-data/customized/bottes.json";
-    private final static String ceinturesDir = "/home/octoc/Documents/dsb-data/customized/ceintures.json";
-    private final static String tropheesDir = "/home/octoc/Documents/dsb-data/customized/trophees.json";
-    private final static String boucliersDir = "/home/octoc/Documents/dsb-data/customized/boucliers.json";
+    private final String amulettesDir = getClass().getResource("data/amulettes.json").getPath();
+    private final String anneauxDir = getClass().getResource("data/anneaux.json").getPath();
+    private final String coiffesDir = getClass().getResource("data/coiffes.json").getPath();
+    private final String capesDir = getClass().getResource("data/capes.json").getPath();
+    private final String dofusDir = getClass().getResource("data/dofus.json").getPath();
+    private final String bottesDir = getClass().getResource("data/bottes.json").getPath();
+    private final String ceinturesDir = getClass().getResource("data/ceintures.json").getPath();
+    private final String tropheesDir = getClass().getResource("data/trophees.json").getPath();
+    private final String boucliersDir = getClass().getResource("data/boucliers.json").getPath();
 
     public List<Equipments> deserializedEquipments(String dir) throws FileNotFoundException {
         Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipments[].class);
         return Arrays.asList(el);
-    }
-
-    public void deserializedMontures() throws IOException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/montures.json"), Equipments[].class);
-        Writer writer = new FileWriter("/home/octoc/Documents/dsb-data/customized/montures.json");
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        write(Arrays.asList(el), writer, gson);
-    }
-
-    public void deserializedFamiliers() throws IOException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/familiers.json"), Equipments[].class);
-        Writer writer = new FileWriter("/home/octoc/Documents/dsb-data/customized/familiers.json");
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        write(Arrays.asList(el), writer, gson);
-    }
-
-    public void deserializedArmes() throws IOException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/armes.json"), Equipments[].class);
-        Writer writer = new FileWriter("/home/octoc/Documents/dsb-data/customized/armes.json");
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        write(Arrays.asList(el), writer, gson);
-    }
-
-    public void deserializedPanoplies() throws IOException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/panoplies.json"), Equipments[].class);
-        Writer writer = new FileWriter("/home/octoc/Documents/dsb-data/customized/panoplies.json");
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        write(Arrays.asList(el), writer, gson);
     }
 
     public void write(String dir) throws IOException {
@@ -107,26 +79,26 @@ public class EquipementsParser {
             }
         });
 
-        write(amulettes, amulettesWriter, gson);
+        writeInFile(amulettes, amulettesWriter, gson);
 
-        write(bottes, bottesWriter, gson);
+        writeInFile(bottes, bottesWriter, gson);
 
-        write(ceintures, ceinturesWriter, gson);
+        writeInFile(ceintures, ceinturesWriter, gson);
 
-        write(anneaux, anneauxWriter, gson);
+        writeInFile(anneaux, anneauxWriter, gson);
 
-        write(coiffes, coiffesWriter, gson);
+        writeInFile(coiffes, coiffesWriter, gson);
 
-        write(capes, capesWriter, gson);
+        writeInFile(capes, capesWriter, gson);
 
-        write(dofus, dofusWriter, gson);
+        writeInFile(dofus, dofusWriter, gson);
 
-        write(trophees, tropheesWriter, gson);
+        writeInFile(trophees, tropheesWriter, gson);
 
-        write(boucliers, boucliersWriter, gson);
+        writeInFile(boucliers, boucliersWriter, gson);
     }
 
-    private void write(List<Equipments> dofus, Writer dofusWriter, Gson gson) throws IOException {
+    public void writeInFile(List<Equipments> dofus, Writer dofusWriter, Gson gson) throws IOException {
         gson.toJson(dofus, dofusWriter);
         dofusWriter.flush();
         dofusWriter.close();

@@ -1,5 +1,9 @@
+import com.google.gson.annotations.SerializedName;
+
 public class FromTo {
+    @SerializedName("min")
     private String from;
+    @SerializedName("max")
     private String to;
 
     public FromTo(String from, String to) {

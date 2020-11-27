@@ -1,10 +1,14 @@
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Equipments {
     private int _id;
     private String name;
+    @SerializedName("level")
     private String lvl;
     private String imgUrl;
+    @SerializedName("statistics")
     private List<Statistic> stats;
     private String type;
     private int setId;
