@@ -4,12 +4,10 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class EquipementsParserTest {
@@ -20,7 +18,7 @@ public class EquipementsParserTest {
     @Test
     public void deserializedEquipments() throws FileNotFoundException {
         // When
-        List<Equipments> eList = equipementsParser.deserializedEquipments(testDir);
+        List<Equipment> eList = equipementsParser.deserializedEquipments(testDir);
 
         // Then
         Assert.assertEquals(eList.get(0).get_id(), 14094);
@@ -35,8 +33,8 @@ public class EquipementsParserTest {
     @Test
     public void writeInFileTest() throws IOException {
         // Given
-        List<Equipments> equipments = new ArrayList();
-        Equipments equipment = new Equipments();
+        List<Equipment> equipments = new ArrayList();
+        Equipment equipment = new Equipment();
         equipment.set_id(14094);
         equipment.setName("Amulette du Strigide");
         equipment.setLvl("200");
@@ -57,11 +55,5 @@ public class EquipementsParserTest {
 
         // When
         equipementsParser.writeInFile(equipments, amulettesWriter, gson);
-    }
-
-    @Test
-    public void write() throws IOException {
-        // When
-        equipementsParser.write(equipementsParser.equipmentsDir);
     }
 }

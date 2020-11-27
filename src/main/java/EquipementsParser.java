@@ -20,87 +20,58 @@ public class EquipementsParser {
     private final String tropheesDir = getClass().getResource("data/trophees.json").getPath();
     private final String boucliersDir = getClass().getResource("data/boucliers.json").getPath();
 
-    public List<Equipments> deserializedEquipments(String dir) throws FileNotFoundException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipments[].class);
+    public List<Equipment> deserializedEquipments(String dir) throws FileNotFoundException {
+        Equipment[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipment[].class);
         return Arrays.asList(el);
     }
 
-    public void write(String dir) throws IOException {
-        List<Equipments> equipmentsList = this.deserializedEquipments(dir);
-        List<Equipments> amulettes = new ArrayList<>();
-        List<Equipments> bottes = new ArrayList<>();
-        List<Equipments> ceintures = new ArrayList<>();
-        List<Equipments> coiffes = new ArrayList<>();
-        List<Equipments> capes = new ArrayList<>();
-        List<Equipments> dofus = new ArrayList<>();
-        List<Equipments> anneaux = new ArrayList<>();
-        List<Equipments> trophees = new ArrayList<>();
-        List<Equipments> boucliers = new ArrayList<>();
+    public void writeAmulettes() throws IOException {
+        write(amulettesDir, Equipment.AMULETTE);
+    }
+    public void writeBottes() throws IOException {
+        write(bottesDir, Equipment.BOTTES);
+    }
+    public void writeCeintures() throws IOException {
+        write(ceinturesDir, Equipment.CEINTURE);
+    }
+    public void writeCapes() throws IOException {
+        write(capesDir, Equipment.CAPE);
+    }
+    public void writeCoiffes() throws IOException {
+        write(coiffesDir, Equipment.CHAPEAU);
+    }
+    public void writeDofus() throws IOException {
+        write(dofusDir, Equipment.DOFUS);
+    }
+    public void writeAnneaux() throws IOException {
+        write(anneauxDir, Equipment.ANNEAU);
 
-        Writer amulettesWriter = new FileWriter(amulettesDir);
-        Writer bottesWriter = new FileWriter(bottesDir);
-        Writer ceinturesWriter = new FileWriter(ceinturesDir);
-        Writer anneauxWriter = new FileWriter(anneauxDir);
-        Writer coiffesWriter = new FileWriter(coiffesDir);
-        Writer capesWriter = new FileWriter(capesDir);
-        Writer dofusWriter = new FileWriter(dofusDir);
-        Writer tropheesWriter = new FileWriter(tropheesDir);
-        Writer boucliersWriter = new FileWriter(boucliersDir);
-
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        equipmentsList.forEach(e -> {
-            if (e.getType().equals("Amulette")) {
-                amulettes.add(e);
-            }
-            if (e.getType().equals("Bottes")) {
-                bottes.add(e);
-            }
-            if (e.getType().equals("Ceinture")) {
-                ceintures.add(e);
-            }
-            if (e.getType().equals("Anneau")) {
-                anneaux.add(e);
-            }
-            if (e.getType().equals("Chapeau")) {
-                coiffes.add(e);
-            }
-            if (e.getType().equals("Cape")) {
-                capes.add(e);
-            }
-            if (e.getType().equals("Dofus")) {
-                dofus.add(e);
-            }
-            if (e.getType().equals("Trophée")) {
-                trophees.add(e);
-            }
-            if (e.getType().equals("Bouclier")) {
-                boucliers.add(e);
-            }
-        });
-
-        writeInFile(amulettes, amulettesWriter, gson);
-
-        writeInFile(bottes, bottesWriter, gson);
-
-        writeInFile(ceintures, ceinturesWriter, gson);
-
-        writeInFile(anneaux, anneauxWriter, gson);
-
-        writeInFile(coiffes, coiffesWriter, gson);
-
-        writeInFile(capes, capesWriter, gson);
-
-        writeInFile(dofus, dofusWriter, gson);
-
-        writeInFile(trophees, tropheesWriter, gson);
-
-        writeInFile(boucliers, boucliersWriter, gson);
+    }
+    public void writeTrophees() throws IOException {
+        write(tropheesDir, Equipment.TROPHEE);
     }
 
-    public void writeInFile(List<Equipments> dofus, Writer dofusWriter, Gson gson) throws IOException {
+    public void writeBoucliers() throws IOException {
+        write(boucliersDir, Equipment.BOUCLIER);
+    }
+
+    public void writeInFile(List<Equipment> dofus, Writer dofusWriter, Gson gson) throws IOException {
         gson.toJson(dofus, dofusWriter);
         dofusWriter.flush();
         dofusWriter.close();
+    }
+
+    private void write(String objectDir, String type) throws IOException {
+        List<Equipment> equipmentsJson = this.deserializedEquipments(equipmentsDir);
+        List<Equipment> equipments = new ArrayList<>();
+        Writer write = new FileWriter(objectDir);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        equipmentsJson.forEach(e -> {
+            if (e.getType().equals(type)) {
+                equipments.add(e);
+            }
+        });
+
+        writeInFile(equipments, write, gson);
     }
 }

@@ -11,69 +11,59 @@ import java.util.Map;
 public class SaveImage {
 
     SaveDirs amulettes = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/amulettes.json",
-            "/home/octoc/Documents/dsb-data/images/amulettes/"
+            getClass().getResource("data/amulettes.json").getPath(),
+            getClass().getResource("images/amulettes/").getPath()
     );
     SaveDirs anneaux = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/anneaux.json",
-            "/home/octoc/Documents/dsb-data/images/anneaux/"
+            getClass().getResource("data/anneaux.json").getPath(),
+            getClass().getResource("images/anneaux/").getPath()
     );
     SaveDirs ceintures = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/ceintures.json",
-            "/home/octoc/Documents/dsb-data/images/ceintures/"
+            getClass().getResource("data/ceintures.json").getPath(),
+            getClass().getResource("images/ceintures/").getPath()
     );
     SaveDirs coiffes = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/coiffes.json",
-            "/home/octoc/Documents/dsb-data/images/coiffes/"
+            getClass().getResource("data/coiffes.json").getPath(),
+            getClass().getResource("images/coiffes/").getPath()
     );
     SaveDirs capes = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/capes.json",
-            "/home/octoc/Documents/dsb-data/images/capes/"
+            getClass().getResource("data/capes.json").getPath(),
+            getClass().getResource("images/capes/").getPath()
     );
     SaveDirs dofus = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/dofus.json",
-            "/home/octoc/Documents/dsb-data/images/dofus/"
+            getClass().getResource("data/dofus.json").getPath(),
+            getClass().getResource("images/dofus/").getPath()
     );
     SaveDirs trophees = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/trophees.json",
-            "/home/octoc/Documents/dsb-data/images/trophees/"
+            getClass().getResource("data/trophees.json").getPath(),
+            getClass().getResource("images/trophees/").getPath()
     );
-    SaveDirs armes = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/armes.json",
-            "/home/octoc/Documents/dsb-data/images/armes/"
-    );
+//    SaveDirs armes = new SaveDirs(
+//            getClass().getResource("data/armes.json").getPath(),
+//            getClass().getResource("images/armes/").getPath()
+//    );
     SaveDirs montures = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/montures.json",
-            "/home/octoc/Documents/dsb-data/images/montures/"
+            getClass().getResource("data/montures.json").getPath(),
+            getClass().getResource("images/montures/").getPath()
     );
     SaveDirs familiers = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/familiers.json",
-            "/home/octoc/Documents/dsb-data/images/familiers/"
+            getClass().getResource("data/familiers.json").getPath(),
+            getClass().getResource("images/familiers/").getPath()
     );
     SaveDirs bottes = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/bottes.json",
-            "/home/octoc/Documents/dsb-data/images/bottes/"
+            getClass().getResource("data/bottes.json").getPath(),
+            getClass().getResource("images/bottes/").getPath()
     );
     SaveDirs boucliers = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/customized/boucliers.json",
-            "/home/octoc/Documents/dsb-data/images/boucliers/"
+            getClass().getResource("data/boucliers.json").getPath(),
+            getClass().getResource("images/boucliers/").getPath()
     );
-    // TODO
-    SaveDirs panoplies = new SaveDirs(
-            "/home/octoc/Documents/dsb-data/panoplies.json",
-            "/home/octoc/Documents/dsb-data/images/panoplies/"
-    );
-
-    private List<Equipments> deserialized(String dir) throws FileNotFoundException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipments[].class);
-        return Arrays.asList(el);
-    }
 
     public void handle(SaveDirs dirs) throws IOException {
-        List<Equipments> equipmentsList = this.deserialized(dirs.getImgUrl());
+        List<Equipment> equipmentList = this.deserialized(dirs.getJsonPath());
         Map<String, String> imgUrlList = new HashMap<>();
 
-        for (Equipments e : equipmentsList) {
+        for (Equipment e : equipmentList) {
             imgUrlList.put(e.getImgUrl(), e.getName().replaceAll("\\s+", ""));
         }
 
@@ -83,7 +73,7 @@ public class SaveImage {
                 URLConnection connection = url.openConnection();
                 connection.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36");
                 InputStream in = connection.getInputStream();
-                OutputStream out = new BufferedOutputStream(new FileOutputStream(dirs.getUrlToSave() + v + ".png"));
+                OutputStream out = new BufferedOutputStream(new FileOutputStream(dirs.getPathToSave() + v + ".png"));
 
                 for (int i; (i = in.read()) != -1; ) {
                     out.write(i);
@@ -94,5 +84,10 @@ public class SaveImage {
 
             }
         });
+    }
+
+    private List<Equipment> deserialized(String dir) throws FileNotFoundException {
+        Equipment[] el = new GsonBuilder().create().fromJson(new FileReader(dir), Equipment[].class);
+        return Arrays.asList(el);
     }
 }

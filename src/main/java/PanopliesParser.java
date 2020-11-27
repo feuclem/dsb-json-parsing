@@ -8,20 +8,22 @@ import java.util.stream.Collectors;
 
 public class PanopliesParser {
 
-    public void deserializedPanoplies() throws IOException {
-        Equipments[] el = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/equipements.json"), Equipments[].class);
-        List<Equipments> equipmentsList = Arrays.asList(el);
-        Panoplies[] pl = new GsonBuilder().create().fromJson(new FileReader("/home/octoc/Documents/dsb-data/panoplies.json"), Panoplies[].class);
-        List<Panoplies> panopliesList = Arrays.asList(pl);
+    final String panopliesDir = getClass().getResource("panoplies.json").getPath();
 
-        panopliesList = panopliesList.stream().peek(panoplies -> {
-            List<Equipments> equipmentsList1 = equipmentsList.stream().filter(equipments -> equipments.getSetId() == panoplies.get_id()).collect(Collectors.toList());
-            panoplies.setEquipments(equipmentsList1);
+    public void write(String dir) throws IOException {
+        Equipment[] el = new GsonBuilder().create().fromJson(new FileReader(getClass().getResource("equipments.json").getPath()), Equipment[].class);
+        List<Equipment> equipmentList = Arrays.asList(el);
+        Panoplie[] pl = new GsonBuilder().create().fromJson(new FileReader(dir), Panoplie[].class);
+        List<Panoplie> panoplieList = Arrays.asList(pl);
+
+        panoplieList = panoplieList.stream().peek(panoplie -> {
+            List<Equipment> equipmentList1 = equipmentList.stream().filter(equipments -> equipments.getSetId() == panoplie.get_id()).collect(Collectors.toList());
+            panoplie.setEquipments(equipmentList1);
         }).collect(Collectors.toList());
 
-        Writer writer = new FileWriter("/home/octoc/Documents/dsb-data/customized/panoplies.json");
+        Writer writer = new FileWriter(getClass().getResource("data/panoplies.json").getPath());
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        gson.toJson(panopliesList, writer);
+        gson.toJson(panoplieList, writer);
         writer.flush();
         writer.close();
     }

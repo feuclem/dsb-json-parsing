@@ -1,25 +1,25 @@
 public class SaveDirs {
-    private String imgUrl;
-    private String urlToSave;
+    private String jsonPath;
+    private String pathToSave;
 
-    SaveDirs(String imgUrl, String urlToSave) {
-        this.imgUrl = imgUrl;
-        this.urlToSave = urlToSave;
+    SaveDirs(String jsonPath, String pathToSave) {
+        this.jsonPath = jsonPath;
+        this.pathToSave = pathToSave;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getJsonPath() {
+        return jsonPath;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setJsonPath(String jsonPath) {
+        this.jsonPath = jsonPath;
     }
 
-    public String getUrlToSave() {
-        return urlToSave;
+    public String getPathToSave() {
+        return pathToSave;
     }
 
-    public void setUrlToSave(String urlToSave) {
-        this.urlToSave = urlToSave;
+    public void setPathToSave(String pathToSave) {
+        this.pathToSave = pathToSave;
     }
 }
