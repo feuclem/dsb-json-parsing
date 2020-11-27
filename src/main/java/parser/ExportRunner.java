@@ -1,9 +1,5 @@
 package parser;
 
-import parser.EquipementsParser;
-import parser.PanopliesParser;
-import parser.SaveImage;
-
 import java.io.IOException;
 
 public class ExportRunner {
@@ -19,9 +15,11 @@ public class ExportRunner {
         equipementsParser.writeCoiffes();
         equipementsParser.writeDofus();
         equipementsParser.writeTrophees();
+
         PanopliesParser panopliesParser = new PanopliesParser();
         panopliesParser.write(panopliesParser.panopliesDir);
-        SaveImage saveImage = new SaveImage();
+
+        SaveImageParser saveImage = new SaveImageParser();
         saveImage.handle(saveImage.amulettes);
         saveImage.handle(saveImage.anneaux);
         saveImage.handle(saveImage.bottes);
@@ -31,5 +29,15 @@ public class ExportRunner {
         saveImage.handle(saveImage.coiffes);
         saveImage.handle(saveImage.dofus);
         saveImage.handle(saveImage.trophees);
+
+        ArmesParser armesParser = new ArmesParser();
+        armesParser.writeArcs();
+        armesParser.writeBaguettes();
+        armesParser.writeBatons();
+        armesParser.writeDagues();
+        armesParser.writeEpees();
+        armesParser.writeFaux();
+        armesParser.writeMarteaux();
+        armesParser.writePelles();
     }
 }

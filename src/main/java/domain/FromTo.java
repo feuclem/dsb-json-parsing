@@ -1,31 +1,27 @@
 package domain;
 
-import com.google.gson.annotations.SerializedName;
-
 public class FromTo {
-    @SerializedName("min")
-    private String from;
-    @SerializedName("max")
-    private String to;
+    private String min;
+    private String max;
 
     public FromTo(String from, String to) {
-        this.from = from;
-        this.to = to;
+        this.min = from;
+        this.max = to;
     }
 
-    public String getFrom() {
-        return from;
+    public String getMin() {
+        return min;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setMin(String min) {
+        this.min = min;
     }
 
-    public String getTo() {
-        return to;
+    public String getMax() {
+        return max;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setMax(String max) {
+        this.max = max;
     }
 }

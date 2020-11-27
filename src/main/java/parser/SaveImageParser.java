@@ -4,7 +4,13 @@ import com.google.gson.GsonBuilder;
 import domain.Equipment;
 import domain.SaveDirs;
 
-import java.io.*;
+import java.io.BufferedOutputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Arrays;
@@ -12,55 +18,55 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SaveImage {
+public class SaveImageParser {
 
     SaveDirs amulettes = new SaveDirs(
-            getClass().getResource("data/amulettes.json").getPath(),
-            getClass().getResource("images/amulettes/").getPath()
+            getClass().getResource("/equipements/amulettes.json").getPath(),
+            getClass().getResource("/images/amulettes/").getPath()
     );
     SaveDirs anneaux = new SaveDirs(
-            getClass().getResource("data/anneaux.json").getPath(),
-            getClass().getResource("images/anneaux/").getPath()
+            getClass().getResource("/equipements/anneaux.json").getPath(),
+            getClass().getResource("/images/anneaux/").getPath()
     );
     SaveDirs ceintures = new SaveDirs(
-            getClass().getResource("data/ceintures.json").getPath(),
-            getClass().getResource("images/ceintures/").getPath()
+            getClass().getResource("/equipements/ceintures.json").getPath(),
+            getClass().getResource("/images/ceintures/").getPath()
     );
     SaveDirs coiffes = new SaveDirs(
-            getClass().getResource("data/coiffes.json").getPath(),
-            getClass().getResource("images/coiffes/").getPath()
+            getClass().getResource("/equipements/coiffes.json").getPath(),
+            getClass().getResource("/images/coiffes/").getPath()
     );
     SaveDirs capes = new SaveDirs(
-            getClass().getResource("data/capes.json").getPath(),
-            getClass().getResource("images/capes/").getPath()
+            getClass().getResource("/equipements/capes.json").getPath(),
+            getClass().getResource("/images/capes/").getPath()
     );
     SaveDirs dofus = new SaveDirs(
-            getClass().getResource("data/dofus.json").getPath(),
-            getClass().getResource("images/dofus/").getPath()
+            getClass().getResource("/equipements/dofus.json").getPath(),
+            getClass().getResource("/images/dofus/").getPath()
     );
     SaveDirs trophees = new SaveDirs(
-            getClass().getResource("data/trophees.json").getPath(),
-            getClass().getResource("images/trophees/").getPath()
+            getClass().getResource("/equipements/trophees.json").getPath(),
+            getClass().getResource("/images/trophees/").getPath()
     );
 //    domain.SaveDirs armes = new domain.SaveDirs(
 //            getClass().getResource("data/armes.json").getPath(),
 //            getClass().getResource("images/armes/").getPath()
 //    );
     SaveDirs montures = new SaveDirs(
-            getClass().getResource("data/montures.json").getPath(),
-            getClass().getResource("images/montures/").getPath()
+            getClass().getResource("/equipements/montures.json").getPath(),
+            getClass().getResource("/images/montures/").getPath()
     );
     SaveDirs familiers = new SaveDirs(
-            getClass().getResource("data/familiers.json").getPath(),
-            getClass().getResource("images/familiers/").getPath()
+            getClass().getResource("/equipements/familiers.json").getPath(),
+            getClass().getResource("/images/familiers/").getPath()
     );
     SaveDirs bottes = new SaveDirs(
-            getClass().getResource("data/bottes.json").getPath(),
-            getClass().getResource("images/bottes/").getPath()
+            getClass().getResource("/equipements/bottes.json").getPath(),
+            getClass().getResource("/images/bottes/").getPath()
     );
     SaveDirs boucliers = new SaveDirs(
-            getClass().getResource("data/boucliers.json").getPath(),
-            getClass().getResource("images/boucliers/").getPath()
+            getClass().getResource("/equipements/boucliers.json").getPath(),
+            getClass().getResource("/images/boucliers/").getPath()
     );
 
     public void handle(SaveDirs dirs) throws IOException {

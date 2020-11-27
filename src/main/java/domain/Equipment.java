@@ -1,29 +1,25 @@
 package domain;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.List;
 
 public class Equipment {
     private int _id;
     private String name;
-    @SerializedName("level")
-    private String lvl;
+    private String level;
     private String imgUrl;
-    @SerializedName("statistics")
-    private List<Statistic> stats;
+    private List<Statistic> statistics;
     private String type;
     private int setId;
 
     public static String AMULETTE = "Amulette";
-    public static String BOTTES = "Bottes";
-    public static String CEINTURE = "Ceinture";
     public static String ANNEAU = "Anneau";
-    public static String CHAPEAU = "Chapeau";
+    public static String BOTTES = "Bottes";
+    public static String BOUCLIER = "Bouclier";
     public static String CAPE = "Cape";
+    public static String CEINTURE = "Ceinture";
+    public static String CHAPEAU = "Chapeau";
     public static String DOFUS = "Dofus";
     public static String TROPHEE = "Trophée";
-    public static String BOUCLIER = "Bouclier";
 
 
     public int get_id() {
@@ -42,12 +38,12 @@ public class Equipment {
         this.name = name;
     }
 
-    public String getLvl() {
-        return lvl;
+    public String getLevel() {
+        return level;
     }
 
-    public void setLvl(String lvl) {
-        this.lvl = lvl;
+    public void setLevel(String level) {
+        this.level = level;
     }
 
     public String getImgUrl() {
@@ -58,12 +54,12 @@ public class Equipment {
         this.imgUrl = imgUrl;
     }
 
-    public List<Statistic> getStats() {
-        return stats;
+    public List<Statistic> getStatistics() {
+        return statistics;
     }
 
-    public void setStats(List<Statistic> stats) {
-        this.stats = stats;
+    public void setStatistics(List<Statistic> statistics) {
+        this.statistics = statistics;
     }
 
     public String getType() {

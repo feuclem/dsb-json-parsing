@@ -27,11 +27,11 @@ public class EquipementsParserTest {
         // Then
         Assert.assertEquals(eList.get(0).get_id(), 14094);
         Assert.assertEquals(eList.get(0).getName(), "Amulette du Strigide");
-        Assert.assertEquals(eList.get(0).getLvl(), "200");
+        Assert.assertEquals(eList.get(0).getLevel(), "200");
         Assert.assertEquals(eList.get(0).getType(), "Amulette");
         Assert.assertEquals(eList.get(0).getImgUrl(), "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/200/1235.png");
-        Assert.assertEquals(eList.get(0).getStats().get(0).getVitalite().getFrom(), "351");
-        Assert.assertEquals(eList.get(0).getStats().get(0).getVitalite().getTo(), "400");
+        Assert.assertEquals(eList.get(0).getStatistics().get(0).getVitalite().getMin(), "351");
+        Assert.assertEquals(eList.get(0).getStatistics().get(0).getVitalite().getMax(), "400");
     }
 
     @Test
@@ -41,7 +41,7 @@ public class EquipementsParserTest {
         Equipment equipment = new Equipment();
         equipment.set_id(14094);
         equipment.setName("Amulette du Strigide");
-        equipment.setLvl("200");
+        equipment.setLevel("200");
         equipment.setType("Amulette");
         equipment.setImgUrl("https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/200/1235.png");
 
@@ -50,7 +50,7 @@ public class EquipementsParserTest {
         statistic.setVitalite(new FromTo("0", "10"));
         statistics.add(statistic);
 
-        equipment.setStats(statistics);
+        equipment.setStatistics(statistics);
         equipments.add(equipment);
 
         String path = getClass().getResource("data/amulettes_test.json").getPath();
