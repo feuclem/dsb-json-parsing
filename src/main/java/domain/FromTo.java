@@ -1,3 +1,5 @@
+package domain;
+
 import com.google.gson.annotations.SerializedName;
 
 public class FromTo {

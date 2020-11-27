@@ -1,4 +1,8 @@
+package parser;
+
 import com.google.gson.GsonBuilder;
+import domain.Equipment;
+import domain.SaveDirs;
 
 import java.io.*;
 import java.net.URL;
@@ -38,7 +42,7 @@ public class SaveImage {
             getClass().getResource("data/trophees.json").getPath(),
             getClass().getResource("images/trophees/").getPath()
     );
-//    SaveDirs armes = new SaveDirs(
+//    domain.SaveDirs armes = new domain.SaveDirs(
 //            getClass().getResource("data/armes.json").getPath(),
 //            getClass().getResource("images/armes/").getPath()
 //    );

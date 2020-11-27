@@ -1,3 +1,9 @@
+package parser;
+
+import parser.EquipementsParser;
+import parser.PanopliesParser;
+import parser.SaveImage;
+
 import java.io.IOException;
 
 public class ExportRunner {

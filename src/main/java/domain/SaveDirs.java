@@ -1,8 +1,10 @@
+package domain;
+
 public class SaveDirs {
     private String jsonPath;
     private String pathToSave;
 
-    SaveDirs(String jsonPath, String pathToSave) {
+    public SaveDirs(String jsonPath, String pathToSave) {
         this.jsonPath = jsonPath;
         this.pathToSave = pathToSave;
     }

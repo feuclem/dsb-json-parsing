@@ -1,4 +1,7 @@
+package domain;
+
 import com.google.gson.annotations.SerializedName;
+import domain.FromTo;
 
 public class Statistic {
     @SerializedName("Vitalité")

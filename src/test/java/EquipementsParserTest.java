@@ -1,7 +1,11 @@
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import domain.Equipment;
+import domain.FromTo;
+import domain.Statistic;
 import org.junit.Assert;
 import org.junit.Test;
+import parser.EquipementsParser;
 
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
