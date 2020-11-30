@@ -16,8 +16,8 @@ public class ExportRunner {
         equipementsParser.writeDofus();
         equipementsParser.writeTrophees();
 
-        PanopliesParser panopliesParser = new PanopliesParser();
-        panopliesParser.write(panopliesParser.panopliesDir);
+        PanoplieBonusParser panoplieBonusParser = new PanoplieBonusParser();
+        panoplieBonusParser.handle();
 
         SaveImageParser saveImage = new SaveImageParser();
         saveImage.handle(saveImage.amulettes);
