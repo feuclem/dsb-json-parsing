@@ -79,6 +79,7 @@ public class EquipementsParser {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         equipmentsJson.forEach(e -> {
             if (e.getType().equals(type)) {
+                e.parseName();
                 equipments.add(e);
             }
         });

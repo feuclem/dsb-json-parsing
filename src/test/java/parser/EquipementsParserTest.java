@@ -13,12 +13,27 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class EquipementsParserTest {
 
-    private EquipementsParser equipementsParser = new EquipementsParser();
-    private String testDir = getClass().getResource("equipments_test.json").getPath();
+    private final EquipementsParser equipementsParser = new EquipementsParser();
+    private final String testDir = getClass().getResource("/equipments_test.json").getPath();
+
+    @Test
+    public void test() throws IOException {
+        EquipementsParser equipementsParser = new EquipementsParser();
+        equipementsParser.writeAmulettes();
+        equipementsParser.writeAnneaux();
+        equipementsParser.writeBottes();
+        equipementsParser.writeBoucliers();
+        equipementsParser.writeCapes();
+        equipementsParser.writeCeintures();
+        equipementsParser.writeCoiffes();
+        equipementsParser.writeDofus();
+        equipementsParser.writeTrophees();
+    }
 
     @Test
     public void deserializedEquipments() throws FileNotFoundException {
@@ -45,16 +60,20 @@ public class EquipementsParserTest {
         equipment.setLevel("200");
         equipment.setType("Amulette");
         equipment.setImgUrl("https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/200/1235.png");
+        equipment.setSetId(274);
 
         List<Statistic> statistics = new ArrayList();
-        Statistic statistic = new Statistic();
-        statistic.setVitalite(new FromTo("0", "10"));
-        statistics.add(statistic);
+        Statistic vitalite = new Statistic();
+        vitalite.setVitalite(new FromTo("0", "10"));
+        statistics.add(vitalite);
+        Statistic puissance = new Statistic();
+        puissance.setPuissance(new FromTo("0", "20"));
+        statistics.add(puissance);
 
         equipment.setStatistics(statistics);
         equipments.add(equipment);
 
-        String path = getClass().getResource("data/amulettes_test.json").getPath();
+        String path = getClass().getResource("/data/amulettes_test.json").getPath();
         Writer amulettesWriter = new FileWriter(path);
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
 

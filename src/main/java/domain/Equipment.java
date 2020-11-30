@@ -21,6 +21,41 @@ public class Equipment {
     public static String DOFUS = "Dofus";
     public static String TROPHEE = "Trophée";
 
+    public void parseName() {
+        if (this.name.contains("% Critique")) {
+            this.setName("% Critique");
+        } else if (this.name.contains("% Résistance Neutre")) {
+            this.setName("% Résistance Neutre");
+        } else if (this.name.contains("% Résistance Terre")) {
+            this.setName("% Résistance Terre");
+        } else if (this.name.contains("% Résistance Feu")) {
+            this.setName("% Résistance Feu");
+        } else if (this.name.contains("% Résistance Eau")) {
+            this.setName("% Résistance Eau");
+        } else if (this.name.contains("% Résistance Air")) {
+            this.setName("% Résistance Air");
+        } else if (this.name.contains("Résistance Neutre")) {
+            this.setName("Résistance Neutre");
+        } else if (this.name.contains("Résistance Terre")) {
+            this.setName("Résistance Terre");
+        } else if (this.name.contains("Résistance Feu")) {
+            this.setName("Résistance Feu");
+        } else if (this.name.contains("Résistance Eau")) {
+            this.setName("Résistance Eau");
+        } else if (this.name.contains("Résistance Air")) {
+            this.setName("Résistance Air");
+        } else if (this.name.contains("Résistance distance")) {
+            this.setName("Résistance distance");
+        } else if (this.name.contains("Résistance mêlée")) {
+            this.setName("Résistance mêlée");
+        } else if (this.name.contains("Dommages distance")) {
+            this.setName("Dommages distance");
+        } else if (this.name.contains("Dommages mêlée")) {
+            this.setName("Dommages mêlée");
+        } else if (this.name.contains("Dommages aux sorts")) {
+            this.setName("Dommages aux sorts");
+        }
+    }
 
     public int get_id() {
         return _id;
