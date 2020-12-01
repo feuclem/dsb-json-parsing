@@ -1,6 +1,5 @@
 package parser
 
-import junit.framework.TestCase
 import org.junit.Test
 
 class PanopliesParserTest {
@@ -8,6 +7,6 @@ class PanopliesParserTest {
     @Test
     fun test() {
         val panopliesParser = PanopliesParser()
-
+        panopliesParser.write()
     }
 }

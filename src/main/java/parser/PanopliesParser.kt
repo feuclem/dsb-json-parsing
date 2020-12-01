@@ -15,7 +15,7 @@ class PanopliesParser {
     private val panopliesDir = javaClass.getResource("/panoplies.json").path
     private val equipementsParser = javaClass.getResource("/equipements.json").path
 
-    fun write(dir: String?) {
+    fun write() {
         val equipementsJson: List<Equipement> = mapper.readValue(equipementsParser)
         val panopliesJson: List<Panoplie> = mapper.readValue(panopliesDir)
         val panoplieList = panopliesJson.map { panoplie ->
@@ -24,6 +24,7 @@ class PanopliesParser {
             }.let { panoplie.equipments = it }
             panoplie
         }
+        println("PANOPLIES PARSER size : " + panoplieList.size)
         writeInFile(panoplieList, javaClass.getResource("/equipements/panoplies.json").path)
     }
 

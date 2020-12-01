@@ -70,23 +70,22 @@ class SaveImageParser {
 
     fun handle(dirs: SaveDirs) {
         val equipmentList = deserializedEquipements()
-        val imgUrlList: MutableMap<String, String> = HashMap()
-        for ((_, name, _, imgUrl) in equipmentList) {
-            imgUrlList[imgUrl] = name.replace("\\s+".toRegex(), "")
-        }
-        imgUrlList.forEach { (k: String?, v: String) ->
-            val url = URL(k)
+        val imgUrlList = equipmentList.map {
+            it.imgUrl to it.name.replace("\\s+".toRegex(), "")
+        }.toMap()
+        imgUrlList.entries.map { (imgUrl: String, name: String) ->
+            val url = URL(imgUrl)
             val connection = url.openConnection()
             connection.setRequestProperty(
                 "User-Agent",
                 "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36"
             )
+            println("RECUPERATION DE L'IMAGE $name")
             val `in` = connection.getInputStream()
-            val out: OutputStream = BufferedOutputStream(FileOutputStream(dirs.pathToSave + v + ".png"))
+            val out: OutputStream = BufferedOutputStream(FileOutputStream(dirs.pathToSave + name + ".png"))
             var i: Int
-            while (`in`.read().also { i = it } != -1) {
-                out.write(i)
-            }
+            while (`in`.read().also { i = it } != -1) out.write(i)
+            println("FIN DE L'ECRITURE DE L'IMAGE $name")
             `in`.close()
             out.close()
         }

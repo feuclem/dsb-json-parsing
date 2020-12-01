@@ -64,6 +64,7 @@ class ArmesParser {
                 armes.add(it)
             }
         }
+        println("ARMES PARSER pour : $type, size : ${armes.size}")
         writeInFile(armes, pathWhereToWrite)
     }
 
