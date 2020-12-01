@@ -8,6 +8,6 @@ data class Panoplie(
     var level: String = "",
     var bonus: Bonus = Bonus(0, emptyList()),
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    var equipments: List<Equipment> = emptyList()
+    var equipments: List<Equipement> = emptyList()
 ) {
 }

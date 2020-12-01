@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class EquipmentTest {
 
-    private final Equipment equipment = new Equipment();
+    private final Equipement equipment = new Equipement();
 
     @Test
     public void testParseNameWhenNameIsVitalite() {
