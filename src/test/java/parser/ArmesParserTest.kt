@@ -6,6 +6,11 @@ import java.io.IOException
 class ArmesParserTest {
 
     @Test
+    fun testWriteArs() {
+
+    }
+
+    @Test
     fun test() {
         val armesParser = ArmesParser()
         armesParser.writeArcs()

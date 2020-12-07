@@ -1,17 +1,11 @@
 package parser
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.readValue
+import Deserializer.readFile
+import Serializer.writeListInFile
 import domain.Equipement
-import java.io.File
 import java.util.ArrayList
 
 class EquipementsParser {
-
-    companion object {
-        private val mapper = ObjectMapper().registerModule(KotlinModule())
-    }
 
     private val equipementsDir = javaClass.getResource("/equipements.json").path
     private val amulettesDir = javaClass.getResource("/equipements/amulettes.json").path
@@ -61,7 +55,7 @@ class EquipementsParser {
     }
 
     private fun write(pathWhereToWrite: String, type: String) {
-        val equipementsJson: List<Equipement> = deserializedEquipements(equipementsDir)
+        val equipementsJson: List<Equipement> = readFile(equipementsDir)
         val equipements: MutableList<Equipement> = ArrayList<Equipement>()
         equipementsJson.forEach {
             if (it.type == type) {
@@ -69,14 +63,6 @@ class EquipementsParser {
             }
         }
         println("EQUIPEMENT PARSER pour : $type , size : ${equipements.size}")
-        writeInFile(equipements, pathWhereToWrite)
-    }
-
-    private fun deserializedEquipements(dir: String): List<Equipement> {
-        return mapper.readValue(dir)
-    }
-
-    private fun writeInFile(dofus: List<Equipement>, fileToWrite: String) {
-        mapper.writeValue(File(fileToWrite), dofus)
+        writeListInFile(pathWhereToWrite, equipements)
     }
 }

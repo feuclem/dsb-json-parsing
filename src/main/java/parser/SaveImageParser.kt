@@ -1,21 +1,14 @@
 package parser
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.fasterxml.jackson.module.kotlin.readValue
+import Deserializer.readFile
 import domain.Equipement
 import domain.SaveDirs
 import java.io.BufferedOutputStream
 import java.io.FileOutputStream
 import java.io.OutputStream
 import java.net.URL
-import java.util.HashMap
 
 class SaveImageParser {
-
-    companion object {
-        private val mapper = ObjectMapper().registerModule(KotlinModule())
-    }
 
     private val equipementsJsonPath = javaClass.getResource("/equipements.json").path
 
@@ -69,7 +62,7 @@ class SaveImageParser {
     )
 
     fun handle(dirs: SaveDirs) {
-        val equipmentList = deserializedEquipements()
+        val equipmentList: List<Equipement> = readFile(equipementsJsonPath)
         val imgUrlList = equipmentList.map {
             it.imgUrl to it.name.replace("\\s+".toRegex(), "")
         }.toMap()
@@ -89,9 +82,5 @@ class SaveImageParser {
             `in`.close()
             out.close()
         }
-    }
-
-    private fun deserializedEquipements(): List<Equipement> {
-        return mapper.readValue(equipementsJsonPath)
     }
 }
