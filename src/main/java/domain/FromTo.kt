@@ -1,8 +1,8 @@
 package domain
 
-class FromTo(
-    var min: String,
-    var max: String? = null
+data class FromTo(
+    var min: Int,
+    var max: Int? = null
 ) {
     init {
         max = if (max == null) {

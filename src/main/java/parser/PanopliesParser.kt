@@ -1,28 +1,25 @@
 package parser
 
-import Deserializer.readFile
-import Serializer.writeListInFile
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import domain.Equipement
+import domain.json.EquipementJson
 import domain.Panoplie
+import domain.json.PanoplieJson
+import java.io.File
 
-class PanopliesParser {
+object PanopliesParser {
 
-    private val panopliesPath = javaClass.getResource("/panoplies.json").path
-    private val equipementsPath = javaClass.getResource("/equipements.json").path
-
-    fun write() {
-        val equipementsJson: List<Equipement> = readFile(equipementsPath)
-        val panopliesJson: List<Panoplie> = readFile(panopliesPath)
-        val panoplieList = panopliesJson.map { panoplie ->
-            equipementsJson.filter { equipement ->
-                equipement.setId == panoplie._id
-            }.let { panoplie.equipments = it }
-            panoplie
+    fun write(equipementsPath: String, panopliesPath: String) {
+        val equipementsJson = jacksonObjectMapper().readValue<List<EquipementJson>>(File(equipementsPath))
+        val panopliesJson = jacksonObjectMapper().readValue<List<PanoplieJson>>(File(panopliesPath))
+        val panoplies = panopliesJson.map { panoplieJson ->
+            panoplieJson.toPanoplie(
+                equipementsJson.filter { equipement ->
+                    equipement.setId == panoplieJson._id
+                }
+            )
         }
-        println("PANOPLIES PARSER size : " + panoplieList.size)
-        writeListInFile(javaClass.getResource("/equipements/panoplies.json").path, panoplieList)
+        println("PANOPLIES PARSER size : " + panoplies.size)
+        jacksonObjectMapper().writeValue(File(javaClass.getResource("/equipements/panoplies.json").path), panoplies)
     }
 }

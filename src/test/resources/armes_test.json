@@ -1,0 +1,204 @@
+[
+  {
+    "_id": 11744,
+    "ankamaId": 11744,
+    "name": "Epée Toche",
+    "level": 196,
+    "type": "Épée",
+    "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/200/6106.png",
+    "url": "https://www.dofus.com/fr/mmorpg/encyclopedie/armes/11744-epee-toche",
+    "description": "La lame de cette arme devient molle lorsque vos jambes commencent à trembler et vous donne ainsi un très bon prétexte pour fuir comme un lâche.",
+    "statistics": [
+      {
+        "(dommages Neutre)": {
+          "min": 16,
+          "max": 30
+        }
+      },
+      {
+        "(dommages Terre)": {
+          "min": 16,
+          "max": 30
+        }
+      },
+      {
+        "(vol Feu)": {
+          "min": 5,
+          "max": 6
+        }
+      },
+      {
+        "Vitalité": {
+          "min": 201,
+          "max": 250
+        }
+      },
+      {
+        "Force": {
+          "min": 31,
+          "max": 50
+        }
+      },
+      {
+        "Intelligence": {
+          "min": 31,
+          "max": 50
+        }
+      },
+      {
+        "Sagesse": {
+          "min": 31,
+          "max": 50
+        }
+      },
+      {
+        "% Critique": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      {
+        "Initiative": {
+          "min": 201,
+          "max": 300
+        }
+      },
+      {
+        "Prospection": {
+          "min": 11,
+          "max": 15
+        }
+      },
+      {
+        "Dommages Neutre": {
+          "min": 8,
+          "max": 12
+        }
+      },
+      {
+        "Dommages Terre": {
+          "min": 8,
+          "max": 12
+        }
+      },
+      {
+        "Dommages Feu": {
+          "min": 8,
+          "max": 12
+        }
+      },
+      {
+        "Résistance Eau": {
+          "min": 7,
+          "max": 10
+        }
+      },
+      {
+        "% Résistance Terre": {
+          "min": 7,
+          "max": 10
+        }
+      },
+      {
+        "Retrait PM": {
+          "min": 4,
+          "max": 5
+        }
+      }
+    ],
+    "characteristics": [
+      {
+        "PA": "5 (1 utilisation par tour)"
+      },
+      {
+        "Portée": "1"
+      },
+      {
+        "CC": "1/15 (+7)"
+      }
+    ],
+    "recipe": [
+      {
+        "Peau de Skeunk": {
+          "ankamaId": 8404,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/8404-peau-skeunk",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/59620.w48h48.png",
+          "type": "Peau",
+          "level": 120,
+          "quantity": 2
+        }
+      },
+      {
+        "Vomer d'Apériglours": {
+          "ankamaId": 11933,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/11933-vomer-aperiglours",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/47684.w48h48.png",
+          "type": "Os",
+          "level": 180,
+          "quantity": 5
+        }
+      },
+      {
+        "Oreille d'Apériglours": {
+          "ankamaId": 11934,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/11934-oreille-aperiglours",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/106634.w48h48.png",
+          "type": "Oreille",
+          "level": 180,
+          "quantity": 41
+        }
+      },
+      {
+        "Incisive de Glourmand": {
+          "ankamaId": 11939,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/11939-incisive-glourmand",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/47686.w48h48.png",
+          "type": "Os",
+          "level": 190,
+          "quantity": 23
+        }
+      },
+      {
+        "Queue de Glourséleste": {
+          "ankamaId": 11943,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/11943-queue-glourseleste",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/65761.w48h48.png",
+          "type": "Queue",
+          "level": 190,
+          "quantity": 10
+        }
+      },
+      {
+        "Hamatum de Glourséleste": {
+          "ankamaId": 11944,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/11944-hamatum-glourseleste",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/47687.w48h48.png",
+          "type": "Os",
+          "level": 190,
+          "quantity": 1
+        }
+      },
+      {
+        "Galet brasillant": {
+          "ankamaId": 12740,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/12740-galet-brasillant",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/15289.w48h48.png",
+          "type": "Galet",
+          "level": 150,
+          "quantity": 3
+        }
+      },
+      {
+        "Œil d'Ougah": {
+          "ankamaId": 13156,
+          "url": "https://www.dofus-touch.com/fr/mmorpg/encyclopedie/ressources/13156-oeil-ougah",
+          "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/www/game/items/52/109600.w48h48.png",
+          "type": "Œil",
+          "level": 180,
+          "quantity": 10
+        }
+      }
+    ],
+    "setId": 0
+  }
+]

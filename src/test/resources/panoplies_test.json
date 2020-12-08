@@ -1,0 +1,42 @@
+[
+  {
+    "_id": 274,
+    "ankamaId": 274,
+    "name": "Panoplie du Strigide",
+    "level": 200,
+    "type": "Panoplie",
+    "imgUrl": "https://s.ankama.com/www/static.ankama.com/dofus/renderer/look/7b317c38302c323132347c313d31363736353536342c323d31363335353838332c333d31363737373138352c343d323931303036342c353d31343536313739397c3134307d/full/1/200_200-10.png",
+    "url": "https://www.dofus.com/fr/mmorpg/encyclopedie/panoplies/274-panoplie-strigide",
+    "bonus": {
+      "number": 2,
+      "stats": [
+        {
+          "PA": {
+            "min": "1",
+            "max": null
+          }
+        },
+        {
+          "Dommages Critiques": {
+            "min": "20",
+            "max": null
+          }
+        },
+        {
+          "Puissance": {
+            "min": "50",
+            "max": null
+          }
+        },
+        {
+          "Vitalité": {
+            "min": "100",
+            "max": null
+          }
+        }
+      ]
+    },
+    "equipment_id": 14096,
+    "weapon_id": null
+  }
+]
