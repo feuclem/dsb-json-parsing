@@ -1,8 +1,10 @@
 package domain
 
 import com.fasterxml.jackson.annotation.JsonAlias
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.annotation.JsonProperty
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 class StatisticJson {
     @JsonProperty("Vitalité")
     var vitalite: FromTo? = null
@@ -635,8 +637,15 @@ class StatisticJson {
     @JsonProperty("Pods")
     var pods: FromTo? = null
 
+    @JsonProperty("Arme de chasse")
+    var armeDeChasse: FromTo? = null
+
+    @JsonProperty("(PV rendus)")
+    var pvRendus: FromTo? = null
+
     fun toStatistic(): Statistic {
         return when {
+            this.vitalite != null -> Statistic("vitalite", this.vitalite!!)
             this.pa != null -> Statistic("pa", this.pa!!)
             this.pm != null -> Statistic("pm", this.pm!!)
             this.po != null -> Statistic("po", this.po!!)
@@ -659,7 +668,7 @@ class StatisticJson {
             this.dommagesArmeTerre != null -> Statistic("dommagesArmeTerre", this.dommagesArmeTerre!!)
             this.dommagesArmeFeu != null -> Statistic("dommagesArmeFeu", this.dommagesArmeFeu!!)
             this.dommagesArmeEau != null -> Statistic("dommagesArmeEau", this.dommagesArmeEau!!)
-            this.dommagesArmeAir != null -> Statistic("dommagesArmeAir", this.dommagesArmeEau!!)
+            this.dommagesArmeAir != null -> Statistic("dommagesArmeAir", this.dommagesArmeAir!!)
             this.volArmeNeutre != null -> Statistic("volArmeNeutre", this.volArmeNeutre!!)
             this.volArmeTerre != null -> Statistic("volArmeTerre", this.volArmeTerre!!)
             this.volArmeFeu != null -> Statistic("volArmeFeu", this.volArmeFeu!!)
@@ -704,7 +713,9 @@ class StatisticJson {
             this.dommagesPieges != null -> Statistic("dommagesPieges", this.dommagesPieges!!)
             this.dommagesSorts != null -> Statistic("dommagesSorts", this.dommagesSorts!!)
             this.pods != null -> Statistic("pods", this.pods!!)
-            else -> Statistic("vitalite", this.vitalite!!)
+            this.armeDeChasse != null -> Statistic("armeDeChasse", this.armeDeChasse!!)
+            this.pvRendus != null -> Statistic("pvRendus", this.pvRendus!!)
+            else -> Statistic("error", FromTo(-1))
         }
     }
 }

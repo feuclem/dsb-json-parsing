@@ -40,14 +40,6 @@ object SaveImageParser {
         javaClass.getResource("/equipements/dofus.json").path,
         javaClass.getResource("/images/dofus/").path
     )
-    val familiersSaveDirs = SaveDirs(
-        javaClass.getResource("/equipements/familiers.json").path,
-        javaClass.getResource("/images/familiers/").path
-    )
-    val monturesSaveDirs = SaveDirs(
-        javaClass.getResource("/equipements/montures.json").path,
-        javaClass.getResource("/images/montures/").path
-    )
     val tropheesSaveDirs = SaveDirs(
         javaClass.getResource("/equipements/trophees.json").path,
         javaClass.getResource("/images/trophees/").path
@@ -79,11 +71,11 @@ object SaveImageParser {
         javaClass.getResource("/images/faux/").path
     )
     val marteauxSaveDirs = SaveDirs(
-        javaClass.getResource("/equipements/marteaux.json").path,
+        javaClass.getResource("/armes/marteaux.json").path,
         javaClass.getResource("/images/marteaux/").path
     )
     val pellesSaveDirs = SaveDirs(
-        javaClass.getResource("/equipements/pelles.json").path,
+        javaClass.getResource("/armes/pelles.json").path,
         javaClass.getResource("/images/pelles/").path
     )
 
@@ -100,13 +92,19 @@ object SaveImageParser {
                 "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.29 Safari/537.36"
             )
             println("RECUPERATION DE L'IMAGE $name")
-            val `in` = connection.getInputStream()
-            val out: OutputStream = BufferedOutputStream(FileOutputStream(dirs.pathToSave + name + ".png"))
-            var i: Int
-            while (`in`.read().also { i = it } != -1) out.write(i)
-            println("FIN DE L'ECRITURE DE L'IMAGE $name")
-            `in`.close()
-            out.close()
+            try {
+                val `in` = connection.getInputStream()
+                val out: OutputStream = BufferedOutputStream(FileOutputStream(dirs.pathToSave + name + ".png"))
+                var i: Int
+                while (`in`.read().also { i = it } != -1) out.write(i)
+                println("FIN DE L'ECRITURE DE L'IMAGE $name")
+                `in`.close()
+                out.close()
+            } catch (e: Exception) {
+                println("ERREUR SUR : $name")
+            } finally {
+                return@map
+            }
         }
     }
 }
